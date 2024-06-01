@@ -1,0 +1,16 @@
+{
+  "index": "Introduction",
+  "gettingStarted": "Getting Started",
+  "articles": "Articles",
+  "authentication": "Authentication",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://adriaudifirst.me",
+    "newWindow": true
+  }
+}
