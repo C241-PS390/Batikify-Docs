@@ -1,0 +1,31 @@
+## Base URL
+
+The base URL for all endpoints is `https://api-domain/user/`.
+
+## Endpoints
+
+1. Register User <br />
+   URL: /register <br />
+   Method: POST <br />
+   Description: Registers a new user with the provided email and password.
+
+- Request Body:
+
+  ````
+  {
+  "email": email@provider.com,
+  "password": userpassword,
+  }```
+
+  ````
+
+- Success Response:
+  Code: 201 Created
+  -Content:
+
+  ```
+  {
+  "message": "User created successfully",
+  "uid": "user_uid"
+  }
+  ```

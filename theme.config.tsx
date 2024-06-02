@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { DocsThemeConfig } from 'nextra-theme-docs'
-import styles from './components/navbar.module.css'
+import styles from './components/version.module.css'
 
 
 const config: DocsThemeConfig = {
@@ -13,8 +13,8 @@ const config: DocsThemeConfig = {
   },
   logo: <>
     <span>Batikify</span>
-    <div className={styles.navbar}>
-      v0.1
+    <div className={styles.version}>
+      Version Skyline
     </div>
   </>,
   project: {

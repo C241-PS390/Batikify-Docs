@@ -1,8 +1,11 @@
 {
   "index": "Introduction",
-  "gettingStarted": "Getting Started",
-  "articles": "Articles",
-  "authentication": "Authentication",
+  "gettingstarted": "Getting Started",
+  "notes": "Developer Notes",
+  "user": "User",
+  "batik": "Batik",
+  "concepts": "Concepts",
+  "CRUD": "CRUD",
   "about": {
     "title": "About",
     "type": "page"
