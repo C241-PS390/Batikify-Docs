@@ -1,11 +1,11 @@
 {
   "index": "Introduction",
   "gettingstarted": "Getting Started",
-  "notes": "Developer Notes",
   "user": "User",
   "batik": "Batik",
   "concepts": "Concepts",
   "CRUD": "CRUD",
+  "notes": "Developer Notes",
   "about": {
     "title": "About",
     "type": "page"
