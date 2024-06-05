@@ -2,9 +2,9 @@
   "index": "Introduction",
   "gettingstarted": "Getting Started",
   "user": "User",
-  "batik": "Batik",
-  "concepts": "Concepts",
-  "CRUD": "CRUD",
+  "articles": "Articles",
+  "encyclopedia": "Encyclopedia",
+  "news": "News",
   "notes": "Developer Notes",
   "about": {
     "title": "About",

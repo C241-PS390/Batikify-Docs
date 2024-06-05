@@ -14,7 +14,7 @@ const config: DocsThemeConfig = {
   logo: <>
     <span>Batikify</span>
     <div className={styles.version}>
-      Version Skyline
+      Version Skyline 1.0 🦅
     </div>
   </>,
   project: {

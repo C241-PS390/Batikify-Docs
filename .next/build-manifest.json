@@ -12,11 +12,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -27,10 +22,35 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/user/register": [
+    "/articles/add-article": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/user/register.js"
+      "static/chunks/pages/articles/add-article.js"
+    ],
+    "/articles/get-all-articles": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/articles/get-all-articles.js"
+    ],
+    "/articles/get-article-by-ID": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/articles/get-article-by-ID.js"
+    ],
+    "/encyclopedia/get-all-encyclopedia": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/encyclopedia/get-all-encyclopedia.js"
+    ],
+    "/encyclopedia/get-encyclopedia-by-ID": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/encyclopedia/get-encyclopedia-by-ID.js"
+    ],
+    "/news": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/news.js"
     ]
   },
   "ampFirstPages": []
