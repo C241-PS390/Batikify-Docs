@@ -2,10 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/articles/add-article": "pages/articles/add-article.js",
-  "/articles/get-article-by-ID": "pages/articles/get-article-by-ID.js",
-  "/news": "pages/news.js",
-  "/articles/get-all-articles": "pages/articles/get-all-articles.js",
-  "/encyclopedia/get-encyclopedia-by-ID": "pages/encyclopedia/get-encyclopedia-by-ID.js",
-  "/encyclopedia/get-all-encyclopedia": "pages/encyclopedia/get-all-encyclopedia.js"
+  "/": "pages/index.js",
+  "/getting-started": "pages/getting-started.js"
 }
