@@ -1,0 +1,88 @@
+# Register
+
+## Functions
+
+This is used to register a user and store its data
+
+## How to Use
+
+### Endpoint
+
+`/user/register`
+
+### Method
+
+`POST`
+
+### Request Body
+
+1. `x-www-form-urlencoded`
+
+   | Key                  | Value                 |
+   | -------------------- | --------------------- |
+   | fullName             | Kang Haerin           |
+   | email                | kang.haerin@email.com |
+   | password             | password              |
+   | passwordConfirmation | password              |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "User created successfully",
+  "data": {
+    "userId": "uniqueIdThatGenerated"
+  }
+}
+```
+
+Status Code: `201`
+
+### Error Response
+
+1. There is empty field in the request body
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Validation error",
+     "errors": [
+       {
+         "field": "fieldName",
+         "message": "validationErrorMessage"
+       },
+       {
+         "field": "fieldName",
+         "message": "validationErrorMessage"
+       },
+       ...
+     ]
+   }
+   ```
+
+   Status Code: `422`
+
+2. Email is already used
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Failed to create user",
+     "error": "Email sudah digunakan"
+   }
+   ```
+
+   Status Code: `409`
+
+3. General error
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Failed to create user",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

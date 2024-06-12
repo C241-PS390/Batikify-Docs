@@ -1,0 +1,126 @@
+# Get Detail Detection History
+
+## Functions
+
+This is used to get detail detection history of a user
+
+## How to Use
+
+### Endpoint
+
+`/detect/histories/{id}`
+
+### Method
+
+`GET`
+
+### Request Body
+
+1. `Headers`
+
+   | Key           | Value                              |
+   | ------------- | ---------------------------------- |
+   | Authorization | loginTokenGeneratedFromLoginMethod |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "Data berhasil diambil",
+  "data": {
+    "result": "historyResult",
+    "origin": "resultOrigin",
+    "description": "resultDescription",
+    "imageUrl": "resultImageUrl",
+    "photoUrl": "uploadedImageUrl",
+    "createdAt": "historyTimestamp"
+  }
+}
+```
+
+Status Code: `200`
+
+### Error Response
+
+1. History not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Tidak ada data"
+   }
+   ```
+
+   Status Code: `404`
+
+2. General error for detection
+
+   ```json
+   {
+     "status": "error",
+     "message": "errorMessage"
+   }
+   ```
+
+   Status Code: `500`
+
+3. User is not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Pengguna tidak ditemukan"
+   }
+   ```
+
+   Status Code: `404`
+
+4. Token is expired
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token kadaluarsa"
+   }
+   ```
+
+   Status Code: `401`
+
+5. There are no token provided
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Tidak ada token"
+   }
+   ```
+
+   Status Code: `403`
+
+6. Invalid token
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token invalid"
+   }
+   ```
+
+   Status Code: `400`
+
+7. General error for authentication
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

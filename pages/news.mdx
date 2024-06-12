@@ -1,0 +1,133 @@
+# Get News from Google
+
+## Functions
+
+This is used to get all news of Batik from Google
+
+## How to Use
+
+### Endpoint
+
+`/encyclopedia?searchQuery={searchValue}&page={page}`
+
+### Method
+
+`GET`
+
+### Request Body
+
+1. `Headers`
+
+   | Key           | Value                              |
+   | ------------- | ---------------------------------- |
+   | Authorization | loginTokenGeneratedFromLoginMethod |
+
+2. `Query`
+
+   | Key         | Value       |
+   | ----------- | ----------- |
+   | searchQuery | searchValue |
+   | page        | page        |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "Encyclopedia retrieved successfully",
+  "data": [
+    {
+      "link": "https://www.antarafoto.com/id/view/2235537/pameran-batik-keraton-kasunanan-solo",
+      "source": "ANTARA Foto",
+      "title": "Pameran batik Keraton Kasunanan Solo",
+      "snippet": "Pengunjung mengamati busana dan kain batik koleksi Keraton Kasunanan Surakarta Hadiningrat yang dipamerkan pada acara bertajuk Sarassua di...",
+      "date": "19 menit yang lalu",
+      "image": "No image"
+    },
+    {
+      "link": "https://www.antaranews.com/berita/4146777/batik-dan-songket-indonesia-ditampilkan-di-italia",
+      "source": "ANTARA News",
+      "title": "Batik dan songket Indonesia ditampilkan di Italia",
+      "snippet": "Busana berbahan batik dan songket karya desainer Indonesia, Dian Natalia Assamady, ditampilkan dalam pertunjukan fesyen yang diselenggarakan...",
+      "date": "1 hari lalu",
+      "image": "imageLink"
+    },
+    ...
+  ]
+}
+```
+
+Status Code: `200`
+
+### Error Response
+
+1. General error for news
+
+   ```json
+   {
+     "status": "error",
+     "message": "errorMessage"
+   }
+   ```
+
+   Status Code: `500`
+
+2. User is not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Pengguna tidak ditemukan"
+   }
+   ```
+
+   Status Code: `404`
+
+3. Token is expired
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token kadaluarsa"
+   }
+   ```
+
+   Status Code: `401`
+
+4. There are no token provided
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Tidak ada token"
+   }
+   ```
+
+   Status Code: `403`
+
+5. Invalid token
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token invalid"
+   }
+   ```
+
+   Status Code: `400`
+
+6. General error for authentication
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

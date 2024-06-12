@@ -1,0 +1,132 @@
+# Get All Encyclopedia
+
+## Functions
+
+This is used to get all encyclopedia of Batik
+
+## How to Use
+
+### Endpoint
+
+`/encyclopedia?search={searchValue}`
+
+### Method
+
+`GET`
+
+### Request Body
+
+1. `Headers`
+
+   | Key           | Value                              |
+   | ------------- | ---------------------------------- |
+   | Authorization | loginTokenGeneratedFromLoginMethod |
+
+2. `Query`
+
+   | Key    | Value       |
+   | ------ | ----------- |
+   | search | searchValue |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "Encyclopedia retrieved successfully",
+  "data": [
+    {
+      "id": "betawi",
+      "origin": "Jakarta",
+      "name": "Batik Betawi",
+      "description": "Batik khas dari Jakarta (Betawi), Indonesia. Motifnya mencerminkan kehidupan sehari-hari masyarakat Betawi.",
+      "slug": "betawi",
+      "imageUrl": "linkOfImage"
+    },
+    {
+      "id": "celup",
+      "origin": "Seluruh Indonesia",
+      "name": "Batik Celup",
+      "description": "Jenis batik yang dibuat dengan cara mencelupkan kain ke dalam pewarna secara berulang-ulang untuk mencapai pola yang diinginkan.",
+      "slug": "celup",
+      "imageUrl": "linkOfImage"
+    },
+    ...
+  ]
+}
+```
+
+Status Code: `200`
+
+### Error Response
+
+1. General error for encyclopedia
+
+   ```json
+   {
+     "status": "error",
+     "message": "errorMessage"
+   }
+   ```
+
+   Status Code: `500`
+
+2. User is not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Pengguna tidak ditemukan"
+   }
+   ```
+
+   Status Code: `404`
+
+3. Token is expired
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token kadaluarsa"
+   }
+   ```
+
+   Status Code: `401`
+
+4. There are no token provided
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Tidak ada token"
+   }
+   ```
+
+   Status Code: `403`
+
+5. Invalid token
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token invalid"
+   }
+   ```
+
+   Status Code: `400`
+
+6. General error for authentication
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

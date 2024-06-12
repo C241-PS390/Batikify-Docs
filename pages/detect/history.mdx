@@ -1,0 +1,128 @@
+# Get All Detection History
+
+## Functions
+
+This is used to get all detection history of a user
+
+## How to Use
+
+### Endpoint
+
+`/detect/histories`
+
+### Method
+
+`GET`
+
+### Request Body
+
+1. `Headers`
+
+   | Key           | Value                              |
+   | ------------- | ---------------------------------- |
+   | Authorization | loginTokenGeneratedFromLoginMethod |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "Data berhasil diambil",
+  "data": [
+    {
+      "id": "historyId",
+      "result": "historyResult",
+      "origin": "resultOrigin",
+      "description": "resultDescription",
+      "imageUrl": "resultImageUrl",
+      "photoUrl": "uploadedImageUrl",
+      "createdAt": "historyTimestamp"
+    },
+    {
+      "id": "historyId",
+      "result": "historyResult",
+      "origin": "resultOrigin",
+      "description": "resultDescription",
+      "imageUrl": "resultImageUrl",
+      "photoUrl": "uploadedImageUrl",
+      "createdAt": "historyTimestamp"
+    },
+    ...
+  ]
+}
+```
+
+Status Code: `200`
+
+### Error Response
+
+1. General error for detection
+
+   ```json
+   {
+     "status": "error",
+     "message": "errorMessage"
+   }
+   ```
+
+   Status Code: `500`
+
+2. User is not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Pengguna tidak ditemukan"
+   }
+   ```
+
+   Status Code: `404`
+
+3. Token is expired
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token kadaluarsa"
+   }
+   ```
+
+   Status Code: `401`
+
+4. There are no token provided
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Tidak ada token"
+   }
+   ```
+
+   Status Code: `403`
+
+5. Invalid token
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token invalid"
+   }
+   ```
+
+   Status Code: `400`
+
+6. General error for authentication
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

@@ -1,0 +1,126 @@
+# Get Encyclopedia by Id
+
+## Functions
+
+This is used to get encyclopedia of Batik by Id
+
+## How to Use
+
+### Endpoint
+
+`/encyclopedia/{id}`
+
+### Method
+
+`GET`
+
+### Request Body
+
+1. `Headers`
+
+   | Key           | Value                              |
+   | ------------- | ---------------------------------- |
+   | Authorization | loginTokenGeneratedFromLoginMethod |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "Encyclopedia retrieved successfully",
+  "data": {
+    "id": "betawi",
+    "origin": "Jakarta",
+    "name": "Batik Betawi",
+    "description": "Batik khas dari Jakarta (Betawi), Indonesia. Motifnya mencerminkan kehidupan sehari-hari masyarakat Betawi.",
+    "slug": "betawi",
+    "imageUrl": "linkOfImage"
+  }
+}
+```
+
+Status Code: `200`
+
+### Error Response
+
+1. Encyclopedia not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Encyclopedia not found"
+   }
+   ```
+
+   Status Code: `404`
+
+2. General error for encyclopedia
+
+   ```json
+   {
+     "status": "error",
+     "message": "errorMessage"
+   }
+   ```
+
+   Status Code: `500`
+
+3. User is not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Pengguna tidak ditemukan"
+   }
+   ```
+
+   Status Code: `404`
+
+4. Token is expired
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token kadaluarsa"
+   }
+   ```
+
+   Status Code: `401`
+
+5. There are no token provided
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Tidak ada token"
+   }
+   ```
+
+   Status Code: `403`
+
+6. Invalid token
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token invalid"
+   }
+   ```
+
+   Status Code: `400`
+
+7. General error for authentication
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

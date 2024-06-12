@@ -1,0 +1,103 @@
+# Profile
+
+## Functions
+
+This is used to see profile of a user
+
+## How to Use
+
+### Endpoint
+
+`/user`
+
+### Method
+
+`GET`
+
+### Request Body
+
+1. `x-www-form-urlencoded`  
+   There is no input for this method
+
+2. `Headers`
+
+   | Key           | Value                              |
+   | ------------- | ---------------------------------- |
+   | Authorization | loginTokenGeneratedFromLoginMethod |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "Data berhasil diambil",
+  "data": {
+    "fullName": "fullNameOfUser",
+    "email": "emailOfUser"
+  }
+}
+```
+
+Status Code: `200`
+
+### Error Response
+
+1. User is not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Pengguna tidak ditemukan"
+   }
+   ```
+
+   Status Code: `404`
+
+2. Token is expired
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token kadaluarsa"
+   }
+   ```
+
+   Status Code: `401`
+
+3. There are no token provided
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Tidak ada token"
+   }
+   ```
+
+   Status Code: `403`
+
+4. Invalid token
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token invalid"
+   }
+   ```
+
+   Status Code: `400`
+
+5. General error
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

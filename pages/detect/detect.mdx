@@ -1,0 +1,149 @@
+# Detect
+
+## Functions
+
+This is used to detect new Batik's pattern and save it to detection history
+
+## How to Use
+
+### Endpoint
+
+`/detect`
+
+### Method
+
+`POST`
+
+### Request Body
+
+1. `form-data`
+
+   | Key              | Value                |
+   | ---------------- | -------------------- |
+   | file (File Type) | dataUploadedFromUser |
+
+2. `Headers`
+
+   | Key           | Value                              |
+   | ------------- | ---------------------------------- |
+   | Authorization | loginTokenGeneratedFromLoginMethod |
+
+### Response Body
+
+When result is above threshold
+
+```json
+{
+  "status": "success",
+  "message": "Prediksi berhasil",
+  "data": {
+    "historyId": "generatedHistoryId",
+    "imageUrl": "generatedImageUrlFromUpload",
+    "name": "batikName",
+    "origin": "batikOrigin",
+    "description": "batikDescription"
+  }
+}
+```
+
+When result is under threshold
+
+```json
+{
+  "status": "success",
+  "message": "Prediksi berhasil, namun di bawah ambang batas",
+  "data": {
+    "historyId": "generatedHistoryId",
+    "imageUrl": "generatedImageUrlFromUpload",
+    "name": "batikName",
+    "origin": "batikOrigin",
+    "description": "batikDescription"
+  }
+}
+```
+
+Status Code: `201`
+
+### Error Response
+
+1. No file uploaded
+
+   ```json
+   {
+     "status": "fail",
+     "message": "No file uploaded"
+   }
+   ```
+
+   Status Code: `400`
+
+2. General error for detection
+
+   ```json
+   {
+     "status": "error",
+     "message": "errorMessage"
+   }
+   ```
+
+   Status Code: `500`
+
+3. User is not found
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Pengguna tidak ditemukan"
+   }
+   ```
+
+   Status Code: `404`
+
+4. Token is expired
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token kadaluarsa"
+   }
+   ```
+
+   Status Code: `401`
+
+5. There are no token provided
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Tidak ada token"
+   }
+   ```
+
+   Status Code: `403`
+
+6. Invalid token
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "Token invalid"
+   }
+   ```
+
+   Status Code: `400`
+
+7. General error for authentication
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Gagal autentikasi token",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`

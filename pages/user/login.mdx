@@ -1,0 +1,86 @@
+# Login
+
+## Functions
+
+This is used to logging in a user and generate login token for accessing the rest of the feature
+
+## How to Use
+
+### Endpoint
+
+`/user/login`
+
+### Method
+
+`POST`
+
+### Request Body
+
+1. `x-www-form-urlencoded`
+
+   | Key      | Value                 |
+   | -------- | --------------------- |
+   | email    | kang.haerin@email.com |
+   | password | password              |
+
+### Response Body
+
+```json
+{
+  "status": "success",
+  "message": "Login successful",
+  "data": {
+    "token": "tokenThatGenerated"
+  }
+}
+```
+
+Status Code: `201`
+
+### Error Response
+
+1. There is empty field in the request body
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Validation error",
+     "errors": [
+       {
+         "field": "fieldName",
+         "message": "validationErrorMessage"
+       },
+       {
+         "field": "fieldName",
+         "message": "validationErrorMessage"
+       },
+       ...
+     ]
+   }
+   ```
+
+   Status Code: `422`
+
+2. Wrong email or password
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Login failed",
+     "error": "Email atau password salah"
+   }
+   ```
+
+   Status Code: `401`
+
+3. General error
+
+   ```json
+   {
+     "status": "fail",
+     "message": "Login failed",
+     "error": "generalError"
+   }
+   ```
+
+   Status Code: `500`
