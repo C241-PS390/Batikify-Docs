@@ -4,5 +4,9 @@
   "user": "User",
   "detect": "Detect Batik's Pattern",
   "encyclopedia": "Encyclopedia of Batik",
-  "news": "News About Batik"
+  "news": "News About Batik",
+  "about": {
+    "title": "About",
+    "type": "page"
+  }
 }
