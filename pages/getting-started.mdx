@@ -10,7 +10,7 @@ https://batikify-api-wk3br75jlq-et.a.run.app
 
 From there, now you can explore our API based on later documentation.
 
-## Use the Development
+## Use the Development Version
 
 To use the development version, you can go to our GitHub at top-right corner of page and search for
 [Batikify-API Repo](https://github.com/C241-PS390/Batikify-API) and then follow these steps:
@@ -29,7 +29,7 @@ To use the development version, you can go to our GitHub at top-right corner of 
 
    `.env.example` content
 
-   ```env
+   ```.env copy
    PROJECT_ID=
    HISTORY_STORAGE_NAME=
    MODEL_URL=
@@ -37,7 +37,15 @@ To use the development version, you can go to our GitHub at top-right corner of 
    PORT=8080
    ```
 
-3. Install the dependencies and run it using `start:dev` for using nodemon and `start` for general
+3. Provide your own Google Cloud service account that have editor access of:
+
+   - Cloud Storage Admin (or can edit object in Cloud Storage)
+   - Cloud Datastore Admin (or can edit data in Firestore)
+   - Service Account User
+
+   After that, store it at `./src/services/serviceAccount.json`
+
+4. Install the dependencies and run it using `start:dev` for using nodemon and `start` for general
    ```bash copy
    npm i
    npm run start:dev
